@@ -1,4 +1,4 @@
-package co.com.nequi.config.kafka;
+package co.com.nequi.kafka.consumer.config;
 
 //import co.com.nequi.kafka.consumer.config.KafkaConfigProperties;
 import lombok.RequiredArgsConstructor;

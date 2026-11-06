@@ -1,0 +1,144 @@
+Parallel Configuration Cache is an incubating feature.
+Calculating task graph as configuration cache cannot be reused because the file system entry 'applications\app-service\build\classes\java\main' has been created.
+
+> Configure project :
+Resolved plugin org.springframework.boot with version: 4.1.2
+Resolved plugin org.sonarqube with version: 7.5.0.8588
+Resolved plugin info.solidsoft.pitest with version: 1.19.0
+
+> Task :usecase:processResources NO-SOURCE
+> Task :kafka-consumer:processResources NO-SOURCE
+> Task :model:processResources NO-SOURCE
+> Task :app-service:processResources UP-TO-DATE
+
+> Task :validateStructure
+Clean Architecture plugin version: 5.1.0
+Submodules: usecase
+Submodules: kafka-consumer
+Submodules: model
+Submodules: app-service
+Project Package: co.com.nequi
+has spring-web dependency to run validations: false
+Injecting ArchitectureTest in module app-service
+Applying changes on disk
+files: 3, dirs: 3, deleted dirs: 0
+Changes successfully applied
+You have the latest plugin version 5.1.0
+Validating Model Module
+--- Dependency: reactor-core
+--- Dependency: reactor-extra
+Validating Use Case Module
+--- Dependency: reactor-core
+--- Dependency: model
+--- Dependency: reactor-extra
+Validating Infrastructure Layer
+Validating kafka-consumer Module
+--- Dependency: usecase
+--- Dependency: reactor-core
+--- Dependency: cloudevents-core
+--- Dependency: model
+--- Dependency: reactor-extra
+--- Dependency: spring-context
+--- Dependency: async-kafka-starter
+The project is valid
+##########################
+##   Analytics Notice   ##
+##########################
+Analytics are enabled by default if you want to disable it please run: gradle analytics --enabled false
+
+> Task :model:compileJava UP-TO-DATE
+> Task :model:classes UP-TO-DATE
+> Task :model:jar UP-TO-DATE
+> Task :usecase:compileJava UP-TO-DATE
+> Task :usecase:classes UP-TO-DATE
+> Task :usecase:jar UP-TO-DATE
+> Task :kafka-consumer:compileJava UP-TO-DATE
+> Task :kafka-consumer:classes UP-TO-DATE
+> Task :kafka-consumer:jar UP-TO-DATE
+> Task :app-service:compileJava UP-TO-DATE
+> Task :app-service:classes UP-TO-DATE
+> Task :app-service:resolveMainClassName UP-TO-DATE
+
+> Task :app-service:bootRun
+
+  .   ____          _            __ _ _
+ /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
+( ( )\___ | '_ | '_| | '_ \/ _` | \ \ \ \
+ \\/  ___)| |_)| | | | | || (_| |  ) ) ) )
+  '  |____| .__|_| |_|_| |_\__, | / / / /
+ =========|_|==============|___/=/_/_/_/
+
+ :: Spring Boot ::                (v4.1.2)
+
+2026-11-05T17:17:41.237-05:00  INFO 43888 --- [kafka-consumer-ms] [  restartedMain] co.com.nequi.MainApplication             : Starting MainApplication using Java 25.0.1 with PID 43888 (C:\Users\mejor\Documents\dev\kafka\kafka-consumer-ms\applications\app-service\build\classes\java\main started by mejor in C:\Users\mejor\Documents\dev\kafka\kafka-consumer-ms\applications\app-service)
+2026-11-05T17:17:41.238-05:00  INFO 43888 --- [kafka-consumer-ms] [  restartedMain] co.com.nequi.MainApplication             : No active profile set, falling back to 1 default profile: "default"
+2026-11-05T17:17:41.424-05:00  WARN 43888 --- [kafka-consumer-ms] [  restartedMain] s.c.a.AnnotationConfigApplicationContext : Exception encountered during context initialization - cancelling refresh attempt: java.lang.IllegalStateException: Error processing condition on org.reactivecommons.async.starter.config.ReactiveCommonsConfig.brokerProviderLifecycleManager
+2026-11-05T17:17:41.430-05:00  INFO 43888 --- [kafka-consumer-ms] [  restartedMain] .s.b.a.l.ConditionEvaluationReportLogger : 
+
+Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
+2026-11-05T17:17:41.441-05:00 ERROR 43888 --- [kafka-consumer-ms] [  restartedMain] o.s.boot.SpringApplication               : Application run failed
+
+java.lang.IllegalStateException: Error processing condition on org.reactivecommons.async.starter.config.ReactiveCommonsConfig.brokerProviderLifecycleManager
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:48) ~[spring-boot-autoconfigure-4.1.2.jar:4.1.2]
+	at org.springframework.context.annotation.ConditionEvaluator.shouldSkip(ConditionEvaluator.java:100) ~[spring-context-7.0.10.jar:7.0.10]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForBeanMethod(ConfigurationClassBeanDefinitionReader.java:196) ~[spring-context-7.0.10.jar:7.0.10]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitionsForConfigurationClass(ConfigurationClassBeanDefinitionReader.java:148) ~[spring-context-7.0.10.jar:7.0.10]
+	at org.springframework.context.annotation.ConfigurationClassBeanDefinitionReader.loadBeanDefinitions(ConfigurationClassBeanDefinitionReader.java:124) ~[spring-context-7.0.10.jar:7.0.10]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.processConfigBeanDefinitions(ConfigurationClassPostProcessor.java:464) ~[spring-context-7.0.10.jar:7.0.10]
+	at org.springframework.context.annotation.ConfigurationClassPostProcessor.postProcessBeanDefinitionRegistry(ConfigurationClassPostProcessor.java:316) ~[spring-context-7.0.10.jar:7.0.10]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanDefinitionRegistryPostProcessors(PostProcessorRegistrationDelegate.java:349) ~[spring-context-7.0.10.jar:7.0.10]
+	at org.springframework.context.support.PostProcessorRegistrationDelegate.invokeBeanFactoryPostProcessors(PostProcessorRegistrationDelegate.java:118) ~[spring-context-7.0.10.jar:7.0.10]
+	at org.springframework.context.support.AbstractApplicationContext.invokeBeanFactoryPostProcessors(AbstractApplicationContext.java:795) ~[spring-context-7.0.10.jar:7.0.10]
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:603) ~[spring-context-7.0.10.jar:7.0.10]
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:744) ~[spring-boot-4.1.2.jar:4.1.2]
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:433) ~[spring-boot-4.1.2.jar:4.1.2]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:309) ~[spring-boot-4.1.2.jar:4.1.2]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1353) ~[spring-boot-4.1.2.jar:4.1.2]
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1342) ~[spring-boot-4.1.2.jar:4.1.2]
+	at co.com.nequi.MainApplication.main(MainApplication.java:11) ~[main/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.boot.devtools.restart.RestartLauncher.run(RestartLauncher.java:40) ~[spring-boot-devtools-4.1.2.jar:4.1.2]
+Caused by: java.lang.IllegalStateException: @ConditionalOnMissingBean did not specify a bean using type, name or annotation and the attempt to deduce the bean's type failed
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.validate(OnBeanCondition.java:645) ~[spring-boot-autoconfigure-4.1.2.jar:4.1.2]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.<init>(OnBeanCondition.java:591) ~[spring-boot-autoconfigure-4.1.2.jar:4.1.2]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition.getMatchOutcome(OnBeanCondition.java:135) ~[spring-boot-autoconfigure-4.1.2.jar:4.1.2]
+	at org.springframework.boot.autoconfigure.condition.SpringBootCondition.matches(SpringBootCondition.java:35) ~[spring-boot-autoconfigure-4.1.2.jar:4.1.2]
+	... 19 common frames omitted
+Caused by: org.springframework.boot.autoconfigure.condition.OnBeanCondition$BeanTypeDeductionException: Failed to deduce bean type for org.reactivecommons.async.starter.config.ReactiveCommonsConfig.brokerProviderLifecycleManager
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.deducedBeanTypeForBeanMethod(OnBeanCondition.java:674) ~[spring-boot-autoconfigure-4.1.2.jar:4.1.2]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.deducedBeanType(OnBeanCondition.java:664) ~[spring-boot-autoconfigure-4.1.2.jar:4.1.2]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.<init>(OnBeanCondition.java:584) ~[spring-boot-autoconfigure-4.1.2.jar:4.1.2]
+	... 21 common frames omitted
+Caused by: java.lang.IllegalStateException: Failed to introspect Class [org.reactivecommons.async.starter.config.ReactiveCommonsConfig] from ClassLoader [jdk.internal.loader.ClassLoaders$AppClassLoader@105be200]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:483) ~[spring-core-7.0.10.jar:7.0.10]
+	at org.springframework.util.ReflectionUtils.findMethod(ReflectionUtils.java:240) ~[spring-core-7.0.10.jar:7.0.10]
+	at org.springframework.util.ReflectionUtils.findMethod(ReflectionUtils.java:221) ~[spring-core-7.0.10.jar:7.0.10]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.findBeanMethod(OnBeanCondition.java:703) ~[spring-boot-autoconfigure-4.1.2.jar:4.1.2]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.getMethodReturnType(OnBeanCondition.java:698) ~[spring-boot-autoconfigure-4.1.2.jar:4.1.2]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.getReturnType(OnBeanCondition.java:682) ~[spring-boot-autoconfigure-4.1.2.jar:4.1.2]
+	at org.springframework.boot.autoconfigure.condition.OnBeanCondition$Spec.deducedBeanTypeForBeanMethod(OnBeanCondition.java:671) ~[spring-boot-autoconfigure-4.1.2.jar:4.1.2]
+	... 23 common frames omitted
+Caused by: java.lang.NoClassDefFoundError: io/micrometer/core/instrument/MeterRegistry
+	at java.base/java.lang.Class.getDeclaredMethods0(Native Method) ~[na:na]
+	at java.base/java.lang.Class.privateGetDeclaredMethods(Class.java:3010) ~[na:na]
+	at java.base/java.lang.Class.getDeclaredMethods(Class.java:2329) ~[na:na]
+	at org.springframework.util.ReflectionUtils.getDeclaredMethods(ReflectionUtils.java:465) ~[spring-core-7.0.10.jar:7.0.10]
+	... 29 common frames omitted
+Caused by: java.lang.ClassNotFoundException: io.micrometer.core.instrument.MeterRegistry
+	at java.base/jdk.internal.loader.BuiltinClassLoader.loadClass(BuiltinClassLoader.java:580) ~[na:na]
+	at java.base/java.lang.ClassLoader.loadClass(ClassLoader.java:490) ~[na:na]
+	... 33 common frames omitted
+
+
+[Incubating] Problems report is available at: file:///C:/Users/mejor/Documents/dev/kafka/kafka-consumer-ms/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.8.2/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 2s
+11 actionable tasks: 2 executed, 9 up-to-date
+Configuration cache entry stored.

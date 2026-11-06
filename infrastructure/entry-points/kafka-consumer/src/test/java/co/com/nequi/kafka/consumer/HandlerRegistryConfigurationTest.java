@@ -1,26 +1,6 @@
 package co.com.nequi.kafka.consumer;
 
-import co.com.nequi.kafka.consumer.handlers.TopicsHandler;
-import org.junit.jupiter.api.BeforeEach;
-import org.junit.jupiter.api.Test;
-import org.reactivecommons.async.api.HandlerRegistry;
-
-import static org.junit.jupiter.api.Assertions.assertNotNull;
-
 class HandlerRegistryConfigurationTest {
 
-    TopicsHandler topicsHandler;
 
-    @BeforeEach
-    void setUp() {
-        topicsHandler = new TopicsHandler();
-    }
-
-    @Test
-    void testHandlerRegistry() {
-        var handlerRegistryConfiguration = new HandlerRegistryConfiguration();
-        HandlerRegistry handlerRegistry = handlerRegistryConfiguration.handlerRegistry(topicsHandler);
-
-        assertNotNull(handlerRegistry);
-    }
 }

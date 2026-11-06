@@ -8,6 +8,6 @@ import reactor.core.publisher.Mono;
 public class PedidoUseCase {
 
     public Mono<Void> printPedido(Pedido pedido){
-        return Mono.fromRunnable(() -> System.out.println(pedido.toString()));
+        return Mono.empty();
     }
 }

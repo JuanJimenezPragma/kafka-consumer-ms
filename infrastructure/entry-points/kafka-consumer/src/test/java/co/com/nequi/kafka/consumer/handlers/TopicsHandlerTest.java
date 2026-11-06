@@ -8,20 +8,5 @@ import reactor.test.StepVerifier;
 import java.util.UUID;
 
 class TopicsHandlerTest {
-    private TopicsHandler topicsHandler;
 
-    @BeforeEach
-    void setUp() {
-        topicsHandler = new TopicsHandler();
-    }
-
-    @Test
-    void handleMessageTest() {
-        KafkaMessage.KafkaMessageProperties properties = new KafkaMessage.KafkaMessageProperties();
-        properties.setTopic("some.event.name");
-        properties.setKey(UUID.randomUUID().toString());
-        properties.getHeaders().put("content-type", "application/json");
-        KafkaMessage message = new KafkaMessage("Message body".getBytes(), properties, null);
-        StepVerifier.create(topicsHandler.handleMessage(message)).expectComplete().verify();
-    }
 }

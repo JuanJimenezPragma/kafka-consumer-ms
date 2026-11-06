@@ -11,15 +11,19 @@ spring:
       path: "/h2"
   profiles:
     include: null
+
 reactive:
   commons:
     kafka:
       app:
+        topics:
+          pedidos: "pedidos"
         connection-properties:
           security:
             protocol: "${KAFKA_SECURITY_PROTOCOL:PLAINTEXT}"
           consumer:
             group-id: "${KAFKA_CONSUMER_GROUP_ID:kafka-consumer-ms}"
+            auto-offset-reset: earliest
         withDLQRetry: "${APP_ASYNC_WITH_DLQ_RETRY:true}"
         maxRetries: "${APP_ASYNC_MAX_RETRIES:5}"
         retryDelay: "${APP_ASYNC_RETRY_DELAY:1000}"
